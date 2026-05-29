@@ -19,6 +19,10 @@ const ReportSubmission = () => {
 
   const [submissionTimestamp, setSubmissionTimestamp] = useState("");
 
+  const [submissionAttempts, setSubmissionAttempts] = useState(0);
+
+  const [submissionMessage, setSubmissionMessage] = useState("");
+
   // REAL TIME CLOCK
   const [currentDate, setCurrentDate] = useState(new Date());
 
@@ -106,6 +110,27 @@ const ReportSubmission = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (submissionAttempts >= 3) {
+      setSubmissionStatus("error");
+      setSubmissionMessage(
+        "You have reached the maximum of 3 report submissions.",
+      );
+      return;
+    }
+
+    const invalidAbsent = absentStaff.some((item) => item.days.length === 0);
+    const invalidDress = dressCodeViolations.some(
+      (item) => item.days.length === 0,
+    );
+
+    if (invalidAbsent || invalidDress) {
+      setSubmissionStatus("error");
+      setSubmissionMessage(
+        "Please select at least one date for every absent staff and dress code violation.",
+      );
+      return;
+    }
+
     const timestamp = new Date().toLocaleString("en-US", {
       weekday: "long",
       year: "numeric",
@@ -117,20 +142,20 @@ const ReportSubmission = () => {
       hour12: true,
     });
 
+    const nextAttempts = submissionAttempts + 1;
+
     setSubmissionTimestamp(timestamp);
-
     setSubmissionStatus("success");
-
-    setTimeout(() => {
-      setAbsentStaff([]);
-      setDressCodeViolations([]);
-      setExpiredLicenses([]);
-      setUnpaidSalaries([]);
-      setExpiredContracts([]);
-      setAdditionalNotes("");
-      setSubmissionStatus("idle");
-      setSubmissionTimestamp("");
-    }, 7000);
+    setSubmissionAttempts(nextAttempts);
+    setSubmissionMessage(
+      `Report submitted successfully. Attempt ${nextAttempts} of 3 used.`,
+    );
+    setAbsentStaff([]);
+    setDressCodeViolations([]);
+    setExpiredLicenses([]);
+    setUnpaidSalaries([]);
+    setExpiredContracts([]);
+    setAdditionalNotes("");
   };
 
   // TOGGLE STAFF
@@ -389,10 +414,14 @@ const ReportSubmission = () => {
             <h3 className="text-lg font-semibold">Report Status</h3>
           </div>
 
-          <p className="text-2xl font-bold text-gray-900">Open</p>
+          <p className="text-2xl font-bold text-gray-900">
+            {submissionAttempts > 0 ? "Submitted" : "Open"}
+          </p>
 
           <p className="text-gray-500 mt-2">
-            Reports can be submitted on sunday only
+            {submissionAttempts > 0
+              ? `${submissionAttempts} of 3 report submissions used`
+              : "Reports can be submitted on sunday only"}
           </p>
         </div>
 
@@ -483,13 +512,32 @@ const ReportSubmission = () => {
           </div>
 
           {/* SUBMIT */}
-          <div className="flex justify-end">
-            <button
-              type="submit"
-              className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl transition-all"
-            >
-              Submit Report
-            </button>
+          <div className="flex flex-col gap-4">
+            <div className="flex justify-end">
+              <button
+                type="submit"
+                disabled={submissionAttempts >= 3}
+                className={`px-8 py-4 rounded-2xl transition-all text-white ${
+                  submissionAttempts >= 3
+                    ? "bg-slate-300 cursor-not-allowed"
+                    : "bg-blue-600 hover:bg-blue-700"
+                }`}
+              >
+                Submit Report
+              </button>
+            </div>
+
+            {submissionMessage && (
+              <div
+                className={`rounded-2xl p-4 text-sm ${
+                  submissionStatus === "success"
+                    ? "bg-green-50 border border-green-200 text-green-700"
+                    : "bg-red-50 border border-red-200 text-red-700"
+                }`}
+              >
+                {submissionMessage}
+              </div>
+            )}
           </div>
         </form>
       </div>
