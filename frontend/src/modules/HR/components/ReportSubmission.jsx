@@ -392,7 +392,7 @@ const ReportSubmission = () => {
           <p className="text-2xl font-bold text-gray-900">Open</p>
 
           <p className="text-gray-500 mt-2">
-            Reports can be submitted any day and any time
+            Reports can be submitted on sunday only
           </p>
         </div>
 
