@@ -53,18 +53,6 @@ const StaffManagement = () => {
       contractStart: "2022-02-20",
       contractEnd: "2027-02-20",
     },
-
-    {
-      id: 5,
-      name: "Dr. James Wilson",
-      role: "Surgeon",
-      attendance: "present",
-      dressCode: "compliant",
-      licenseExpiry: "2026-11-30",
-      salaryPaid: true,
-      contractStart: "2018-09-12",
-      contractEnd: "2026-09-12",
-    },
   ];
 
   const tabs = [

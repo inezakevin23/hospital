@@ -25,12 +25,12 @@ const Sidebar = ({ activePage, setActivePage }) => {
   ];
 
   return (
-    <aside className="w-72 bg-white border-r border-gray-200/60 min-h-screen sticky top-0 overflow-y-auto shadow-sm">
+    <aside className="w-72 bg-white border-r border-gray-200/60 h-screen sticky top-0 overflow-hidden shadow-sm">
       {/* TITLE */}
       <div className="p-8 border-b border-gray-200/70">
-        <h1 className="text-3xl font-bold text-[#111827]">Hospital HR</h1>
+        <h1 className="text-3xl font-bold text-[#111827]">HR Portal</h1>
         <p className="text-slate-500 mt-2 text-sm font-medium">
-          Staff Management System
+          Report and manage hospital staff
         </p>
       </div>
 

@@ -14,40 +14,40 @@ const Dashboard = () => {
       title: "Total Staff",
       value: 127,
       icon: <FiUsers />,
-      iconBg: "bg-light_blue-600",
-      iconColor: "text-jet_black-500",
+      iconBg: "bg-gradient-to-br from-sky-100 to-sky-200",
+      iconColor: "text-sky-700",
     },
 
     {
       title: "Present Today",
       value: 118,
       icon: <FiUserCheck />,
-      iconBg: "bg-light_cyan-700",
-      iconColor: "text-jet_black-500",
+      iconBg: "bg-gradient-to-br from-emerald-100 to-emerald-200",
+      iconColor: "text-emerald-700",
     },
 
     {
       title: "On Leave",
       value: 5,
       icon: <FiCalendar />,
-      iconBg: "bg-cool_steel-300",
-      iconColor: "text-jet_black-500",
+      iconBg: "bg-gradient-to-br from-orange-100 to-orange-200",
+      iconColor: "text-orange-700",
     },
 
     {
       title: "Expired Licenses",
       value: 3,
       icon: <FiAlertCircle />,
-      iconBg: "bg-light_blue-700",
-      iconColor: "text-light_cyan-500",
+      iconBg: "bg-gradient-to-br from-rose-100 to-rose-200",
+      iconColor: "text-rose-700",
     },
 
     {
       title: "Pending Salary",
       value: 0,
       icon: <FiClock />,
-      iconBg: "bg-cool_steel-400",
-      iconColor: "text-jet_black-500",
+      iconBg: "bg-gradient-to-br from-amber-100 to-amber-200",
+      iconColor: "text-amber-700",
     },
   ];
 
@@ -62,7 +62,7 @@ const Dashboard = () => {
       </div>
 
       {/* CARDS */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
         {stats.map((stat, index) => (
           <StatCard
             key={index}
