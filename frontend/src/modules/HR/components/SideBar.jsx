@@ -25,24 +25,24 @@ const Sidebar = ({ activePage, setActivePage }) => {
   ];
 
   return (
-    <aside className="w-72 bg-white border-r border-gray-200/60 h-screen sticky top-0 overflow-hidden shadow-sm">
+    <aside className="w-64 bg-white border-r border-slate-200/70 h-screen sticky top-0 overflow-hidden shadow-sm">
       {/* TITLE */}
-      <div className="p-8 border-b border-gray-200/70">
-        <h1 className="text-3xl font-bold text-[#111827]">HR Portal</h1>
-        <p className="text-slate-500 mt-2 text-sm font-medium">
+      <div className="p-6 border-b border-slate-200/70">
+        <h1 className="text-2xl font-semibold text-slate-950">HR Portal</h1>
+        <p className="text-slate-500 mt-2 text-sm leading-6">
           Report and manage hospital staff
         </p>
       </div>
 
       {/* MENU */}
-      <nav className="p-6 space-y-3">
+      <nav className="p-5 space-y-2.5">
         {menus.map((menu) => (
           <button
             key={menu.id}
             onClick={() => setActivePage(menu.id)}
-            className={`w-full flex items-center gap-4 rounded-2xl px-4 py-4 text-sm font-medium transition-all duration-200 text-left ${
+            className={`w-full flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition-all duration-200 text-left ${
               activePage === menu.id
-                ? "bg-blue-50 text-blue-600 shadow-sm ring-1 ring-blue-200"
+                ? "bg-sky-50 text-sky-700 shadow-sm ring-1 ring-sky-200"
                 : "text-slate-700 hover:bg-slate-100"
             }`}
           >

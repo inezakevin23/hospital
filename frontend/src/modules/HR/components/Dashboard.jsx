@@ -55,7 +55,7 @@ const Dashboard = () => {
     <div className="w-full">
       {/* HEADER */}
       <div className="mb-8">
-        <h1 className="text-4xl font-semibold text-[#111827]">Dashboard</h1>
+        <h1 className="text-4xl font-semibold text-slate-950">Dashboard</h1>
         <p className="text-slate-500 text-lg mt-2">
           Overview of hospital HR operations
         </p>
