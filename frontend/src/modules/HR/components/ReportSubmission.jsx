@@ -377,7 +377,7 @@ const ReportSubmission = () => {
     expiredContracts.length;
 
   return (
-    <div className="p-8">
+    <div className="px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
       {/* HEADER */}
       <div className="mb-8">
         <h2 className="text-4xl font-bold text-gray-900 mb-2">
@@ -390,7 +390,7 @@ const ReportSubmission = () => {
       </div>
 
       {/* TOP CARDS */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 mb-8">
         {/* CLOCK */}
         <div className="bg-white p-6 rounded-3xl border border-gray-200">
           <div className="flex items-center gap-3 mb-3">

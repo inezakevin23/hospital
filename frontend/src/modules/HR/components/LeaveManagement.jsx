@@ -108,7 +108,7 @@ const LeaveManagement = () => {
   };
 
   return (
-    <div className="p-8">
+    <div className="px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
       {/* HEADER */}
       <div className="mb-8">
         <h2 className="text-4xl font-bold text-gray-900 mb-2">
@@ -154,7 +154,7 @@ const LeaveManagement = () => {
         </div>
 
         {/* CONTENT */}
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           {/* ANNUAL LEAVE */}
           {activeTab === "annual" && (
             <div>

@@ -54,15 +54,19 @@ const Dashboard = () => {
   return (
     <div className="w-full">
       {/* HEADER */}
-      <div className="mb-8">
-        <h1 className="text-4xl font-semibold text-slate-950">Dashboard</h1>
-        <p className="text-slate-500 text-lg mt-2">
-          Overview of hospital HR operations
-        </p>
+      <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h1 className="text-3xl font-semibold text-slate-950 sm:text-4xl">
+            Dashboard
+          </h1>
+          <p className="text-slate-500 text-base mt-2 sm:text-lg">
+            Overview of hospital HR operations
+          </p>
+        </div>
       </div>
 
       {/* CARDS */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {stats.map((stat, index) => (
           <StatCard
             key={index}
