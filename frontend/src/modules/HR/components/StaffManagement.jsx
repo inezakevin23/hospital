@@ -317,7 +317,8 @@ const StaffManagement = () => {
               <div className="flex flex-wrap items-center gap-4 text-sm text-slate-600">
                 <span className="flex items-center gap-2">
                   <span className="w-3 h-3 rounded-full bg-emerald-500"></span>
-                  Present: <span className="text-emerald-600 font-semibold">4</span>
+                  Present:{" "}
+                  <span className="text-emerald-600 font-semibold">4</span>
                 </span>
                 <span className="flex items-center gap-2">
                   <span className="w-3 h-3 rounded-full bg-rose-500"></span>
@@ -342,8 +343,13 @@ const StaffManagement = () => {
                 </thead>
                 <tbody>
                   {staffData.map((staff) => (
-                    <tr key={staff.id} className="border-b border-white/10 hover:bg-white/40 transition-colors">
-                      <td className="py-4 px-4 text-slate-900 font-medium">{staff.name}</td>
+                    <tr
+                      key={staff.id}
+                      className="border-b border-white/10 hover:bg-white/40 transition-colors"
+                    >
+                      <td className="py-4 px-4 text-slate-900 font-medium">
+                        {staff.name}
+                      </td>
                       <td className="py-4 px-4 text-slate-600">{staff.role}</td>
                       <td className="py-4 px-4 text-center">
                         {staff.attendance === "present" ? (
@@ -395,7 +401,10 @@ const StaffManagement = () => {
                     );
 
                     return (
-                      <tr key={staff.id} className="border-b border-white/10 hover:bg-white/40 transition-colors">
+                      <tr
+                        key={staff.id}
+                        className="border-b border-white/10 hover:bg-white/40 transition-colors"
+                      >
                         <td className="py-4 px-4 text-slate-900">
                           {staff.name}
                         </td>
@@ -442,8 +451,13 @@ const StaffManagement = () => {
                 </thead>
                 <tbody>
                   {staffData.map((staff) => (
-                    <tr key={staff.id} className="border-b border-white/10 hover:bg-white/40 transition-colors">
-                      <td className="py-4 px-4 text-slate-900 font-medium">{staff.name}</td>
+                    <tr
+                      key={staff.id}
+                      className="border-b border-white/10 hover:bg-white/40 transition-colors"
+                    >
+                      <td className="py-4 px-4 text-slate-900 font-medium">
+                        {staff.name}
+                      </td>
                       <td className="py-4 px-4 text-slate-600">{staff.role}</td>
                       <td className="py-4 px-4 text-center text-slate-900 font-semibold">
                         <span className="inline-flex items-center gap-1 justify-center">
@@ -485,7 +499,10 @@ const StaffManagement = () => {
                     const contractStatus = getContractStatus(staff);
 
                     return (
-                      <tr key={staff.id} className="border-b border-white/10 hover:bg-white/40 transition-colors">
+                      <tr
+                        key={staff.id}
+                        className="border-b border-white/10 hover:bg-white/40 transition-colors"
+                      >
                         <td className="py-4 px-4 text-slate-900 font-medium">
                           {staff.name}
                         </td>

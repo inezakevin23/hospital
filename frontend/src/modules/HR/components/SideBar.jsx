@@ -1,4 +1,10 @@
-import { FiGrid, FiUsers, FiCalendar, FiFileText, FiMenu } from "react-icons/fi";
+import {
+  FiGrid,
+  FiUsers,
+  FiCalendar,
+  FiFileText,
+  FiMenu,
+} from "react-icons/fi";
 import { useState } from "react";
 
 const Sidebar = ({ activePage, setActivePage }) => {
