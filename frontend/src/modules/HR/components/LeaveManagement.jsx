@@ -86,7 +86,8 @@ const LeaveManagement = () => {
   const renderStatusBadge = (status) => {
     if (status === "approved") {
       return (
-        <span className="px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm">
+        <span className="px-4 py-2 rounded-full bg-emerald-100 text-emerald-700 text-sm font-semibold flex items-center gap-2">
+          <Check size={16} />
           Approved
         </span>
       );
@@ -94,45 +95,44 @@ const LeaveManagement = () => {
 
     if (status === "pending") {
       return (
-        <span className="px-3 py-1 rounded-full bg-yellow-100 text-yellow-700 text-sm">
+        <span className="px-4 py-2 rounded-full bg-amber-100 text-amber-700 text-sm font-semibold flex items-center gap-2">
+          <Clock size={16} />
           Pending
         </span>
       );
     }
 
     return (
-      <span className="px-3 py-1 rounded-full bg-red-100 text-red-700 text-sm">
+      <span className="px-4 py-2 rounded-full bg-rose-100 text-rose-700 text-sm font-semibold flex items-center gap-2">
+        <X size={16} />
         Rejected
       </span>
     );
   };
 
   return (
-    <div className="px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
+    <div className="w-full">
       {/* HEADER */}
       <div className="mb-8">
-        <h2 className="text-4xl font-bold text-gray-900 mb-2">
+        <h2 className="text-4xl font-bold text-slate-900 mb-2">
           Leave & Permissions
         </h2>
-
-        <p className="text-gray-600 text-lg">
+        <p className="text-slate-600 text-lg">
           Track annual leave and permission requests
         </p>
       </div>
 
       {/* MAIN CARD */}
-      <div className="bg-white rounded-3xl border border-gray-200 overflow-hidden">
+      <div className="bg-white/80 backdrop-blur-sm rounded-2xl border border-white/20 shadow-lg overflow-hidden">
         {/* TABS */}
-        <div className="border-b border-gray-200">
-          <div className="flex gap-2 p-3">
+        <div className="border-b border-white/20 bg-white/50 backdrop-blur-sm">
+          <div className="flex gap-2 p-4">
             <button
               onClick={() => setActiveTab("annual")}
-              className={`px-5 py-3 rounded-xl transition-all
-              
-              ${
+              className={`px-5 py-3 rounded-lg transition-all font-semibold ${
                 activeTab === "annual"
-                  ? "bg-blue-50 text-blue-600"
-                  : "text-gray-600 hover:bg-gray-50"
+                  ? "bg-gradient-to-r from-teal-500 to-teal-600 text-white shadow-md"
+                  : "text-slate-600 hover:bg-white/50"
               }`}
             >
               Annual Leave Tracker
@@ -140,12 +140,10 @@ const LeaveManagement = () => {
 
             <button
               onClick={() => setActiveTab("permissions")}
-              className={`px-5 py-3 rounded-xl transition-all
-              
-              ${
+              className={`px-5 py-3 rounded-lg transition-all font-semibold ${
                 activeTab === "permissions"
-                  ? "bg-blue-50 text-blue-600"
-                  : "text-gray-600 hover:bg-gray-50"
+                  ? "bg-gradient-to-r from-teal-500 to-teal-600 text-white shadow-md"
+                  : "text-slate-600 hover:bg-white/50"
               }`}
             >
               Permission Requests
@@ -154,11 +152,11 @@ const LeaveManagement = () => {
         </div>
 
         {/* CONTENT */}
-        <div className="p-4 sm:p-6">
+        <div className="p-6">
           {/* ANNUAL LEAVE */}
           {activeTab === "annual" && (
             <div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+              <h3 className="text-2xl font-bold text-slate-900 mb-6">
                 Annual Leave Overview
               </h3>
 
@@ -166,13 +164,13 @@ const LeaveManagement = () => {
                 {annualLeaveData.map((leave) => (
                   <div
                     key={leave.id}
-                    className="border border-gray-200 rounded-2xl p-5 hover:bg-gray-50 transition-all"
+                    className="border border-white/20 rounded-xl p-6 hover:bg-white/40 hover:shadow-md transition-all bg-white/50 backdrop-blur-sm"
                   >
                     <div className="flex items-start justify-between flex-wrap gap-4">
                       <div className="flex-1">
                         {/* TOP */}
                         <div className="flex items-center gap-3 mb-3 flex-wrap">
-                          <h4 className="text-xl font-semibold text-gray-900">
+                          <h4 className="text-lg font-bold text-slate-900">
                             {leave.staffName}
                           </h4>
 
@@ -180,7 +178,7 @@ const LeaveManagement = () => {
                         </div>
 
                         {/* DATES */}
-                        <div className="flex items-center gap-6 text-sm text-gray-600 mb-4 flex-wrap">
+                        <div className="flex items-center gap-6 text-sm text-slate-600 mb-4 flex-wrap">
                           <div className="flex items-center gap-2">
                             <Calendar size={16} />
 

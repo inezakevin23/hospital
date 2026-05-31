@@ -377,14 +377,14 @@ const ReportSubmission = () => {
     expiredContracts.length;
 
   return (
-    <div className="px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
+    <div className="w-full">
       {/* HEADER */}
       <div className="mb-8">
-        <h2 className="text-4xl font-bold text-gray-900 mb-2">
+        <h2 className="text-4xl font-bold text-slate-900 mb-2">
           HR Report Submission
         </h2>
 
-        <p className="text-gray-600 text-lg">
+        <p className="text-slate-600 text-lg">
           Submit HR compliance and staff reports
         </p>
       </div>
@@ -392,41 +392,41 @@ const ReportSubmission = () => {
       {/* TOP CARDS */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 mb-8">
         {/* CLOCK */}
-        <div className="bg-white p-6 rounded-3xl border border-gray-200">
+        <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-white/20 shadow-md">
           <div className="flex items-center gap-3 mb-3">
-            <Clock className="text-blue-600" />
+            <Clock className="text-sky-600" />
 
             <h3 className="text-lg font-semibold">Current Time</h3>
           </div>
 
-          <p className="text-2xl font-bold text-gray-900">
+          <p className="text-2xl font-bold text-slate-900">
             {currentDate.toLocaleTimeString()}
           </p>
 
-          <p className="text-gray-500 mt-2">{currentDate.toDateString()}</p>
+          <p className="text-slate-500 mt-2">{currentDate.toDateString()}</p>
         </div>
 
         {/* REPORT STATUS */}
-        <div className="bg-white p-6 rounded-3xl border border-gray-200">
+        <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-white/20 shadow-md">
           <div className="flex items-center gap-3 mb-3">
             <Calendar className="text-purple-600" />
 
             <h3 className="text-lg font-semibold">Report Status</h3>
           </div>
 
-          <p className="text-2xl font-bold text-gray-900">
+          <p className="text-2xl font-bold text-slate-900">
             {submissionAttempts > 0 ? "Submitted" : "Open"}
           </p>
 
-          <p className="text-gray-500 mt-2">
+          <p className="text-slate-500 mt-2">
             {submissionAttempts > 0
               ? `${submissionAttempts} of 3 report submissions used`
-              : "Reports can be submitted on sunday only"}
+              : "Reports can be submitted on Sunday only"}
           </p>
         </div>
 
         {/* TOTAL ISSUES */}
-        <div className="bg-red-50 border border-red-200 p-6 rounded-3xl">
+        <div className="bg-red-50 border border-red-200 p-6 rounded-2xl shadow-sm">
           <div className="flex items-center gap-3 mb-3">
             <AlertCircle className="text-red-600" />
 
@@ -459,7 +459,7 @@ const ReportSubmission = () => {
       )}
 
       {/* MAIN FORM */}
-      <div className="bg-white rounded-3xl border border-gray-200 p-6">
+      <div className="bg-white/80 backdrop-blur-sm rounded-2xl border border-white/20 p-6 shadow-md">
         <form onSubmit={handleSubmit} className="space-y-8">
           {renderMultiSelectWithDays(
             "Absent Staff",
@@ -498,7 +498,7 @@ const ReportSubmission = () => {
 
           {/* NOTES */}
           <div>
-            <label className="block text-gray-700 font-medium mb-2">
+            <label className="block text-slate-700 font-medium mb-2">
               Additional Notes
             </label>
 
@@ -507,7 +507,7 @@ const ReportSubmission = () => {
               value={additionalNotes}
               onChange={(e) => setAdditionalNotes(e.target.value)}
               placeholder="Add extra report notes..."
-              className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+              className="w-full px-4 py-3 border border-white/20 rounded-2xl focus:outline-none focus:ring-2 focus:ring-sky-500 resize-none bg-white/60"
             />
           </div>
 
@@ -520,7 +520,7 @@ const ReportSubmission = () => {
                 className={`px-8 py-4 rounded-2xl transition-all text-white ${
                   submissionAttempts >= 3
                     ? "bg-slate-300 cursor-not-allowed"
-                    : "bg-blue-600 hover:bg-blue-700"
+                    : "bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700"
                 }`}
               >
                 Submit Report
@@ -543,10 +543,10 @@ const ReportSubmission = () => {
       </div>
 
       {/* GUIDELINES */}
-      <div className="mt-8 bg-blue-50 border border-blue-200 rounded-3xl p-6">
-        <h4 className="text-blue-900 font-semibold mb-4">Report Guidelines</h4>
+      <div className="mt-8 bg-white/50 border border-white/20 rounded-2xl p-6">
+        <h4 className="text-slate-900 font-semibold mb-4">Report Guidelines</h4>
 
-        <ul className="space-y-2 text-blue-700 text-sm">
+        <ul className="space-y-2 text-slate-700 text-sm">
           <li>• Report submission has only 3 attempts</li>
 
           <li>• Staff members can appear in multiple categories</li>

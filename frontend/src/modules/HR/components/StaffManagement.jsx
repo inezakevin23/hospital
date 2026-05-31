@@ -268,30 +268,30 @@ const StaffManagement = () => {
   };
 
   return (
-    <div className="px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
+    <div className="w-full">
       {/* HEADER */}
       <div className="mb-8">
-        <h2 className="text-3xl font-bold text-slate-950 mb-2">
+        <h2 className="text-4xl font-bold text-slate-900 mb-2">
           Staff Management
         </h2>
-        <p className="text-slate-600 text-base sm:text-lg">
+        <p className="text-slate-600 text-lg">
           Manage daily operations and staff records
         </p>
       </div>
 
       {/* CONTAINER */}
-      <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+      <div className="bg-white/80 backdrop-blur-sm rounded-2xl border border-white/20 shadow-lg overflow-hidden">
         {/* TABS */}
-        <div className="border-b border-slate-200">
-          <div className="flex flex-wrap gap-2 p-3">
+        <div className="border-b border-white/20 bg-white/50 backdrop-blur-sm">
+          <div className="flex flex-wrap gap-2 p-4 overflow-x-auto">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`rounded-2xl px-4 py-3 text-sm font-medium transition-all duration-150 ${
+                className={`px-4 py-3 text-sm font-semibold rounded-lg transition-all duration-200 whitespace-nowrap ${
                   activeTab === tab.id
-                    ? "bg-sky-50 text-sky-700"
-                    : "text-slate-600 hover:bg-slate-50"
+                    ? "bg-gradient-to-r from-teal-500 to-teal-600 text-white shadow-md"
+                    : "text-slate-600 hover:bg-white/50"
                 }`}
               >
                 {tab.label}
@@ -301,10 +301,10 @@ const StaffManagement = () => {
         </div>
 
         {/* CONTENT */}
-        <div className="p-4 sm:p-6">
+        <div className="p-6">
           <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <h3 className="text-2xl font-semibold text-slate-950">
+              <h3 className="text-2xl font-bold text-slate-900">
                 {activeTab === "attendance" &&
                   "Daily Attendance - May 27, 2026"}
                 {activeTab === "files" && "Staff Files & License Management"}
@@ -314,14 +314,14 @@ const StaffManagement = () => {
               </h3>
             </div>
             {activeTab === "attendance" ? (
-              <div className="flex flex-wrap items-center gap-3 text-sm text-slate-600">
-                <span>
-                  Present:
-                  <span className="text-emerald-600 ml-1">4</span>
+              <div className="flex flex-wrap items-center gap-4 text-sm text-slate-600">
+                <span className="flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full bg-emerald-500"></span>
+                  Present: <span className="text-emerald-600 font-semibold">4</span>
                 </span>
-                <span>
-                  Absent:
-                  <span className="text-rose-600 ml-1">1</span>
+                <span className="flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full bg-rose-500"></span>
+                  Absent: <span className="text-rose-600 font-semibold">1</span>
                 </span>
               </div>
             ) : null}
@@ -333,7 +333,7 @@ const StaffManagement = () => {
             {activeTab === "attendance" && (
               <table className="w-full min-w-full table-auto">
                 <thead>
-                  <tr className="border-b border-slate-200 text-left text-sm text-slate-700">
+                  <tr className="border-b border-white/20 text-left text-sm font-semibold text-slate-700 bg-white/50">
                     <th className="py-4 px-4">Staff Member</th>
                     <th className="py-4 px-4">Role</th>
                     <th className="py-4 px-4 text-center">Attendance</th>
@@ -342,17 +342,17 @@ const StaffManagement = () => {
                 </thead>
                 <tbody>
                   {staffData.map((staff) => (
-                    <tr key={staff.id} className="border-b border-slate-100">
-                      <td className="py-4 px-4 text-slate-900">{staff.name}</td>
+                    <tr key={staff.id} className="border-b border-white/10 hover:bg-white/40 transition-colors">
+                      <td className="py-4 px-4 text-slate-900 font-medium">{staff.name}</td>
                       <td className="py-4 px-4 text-slate-600">{staff.role}</td>
                       <td className="py-4 px-4 text-center">
                         {staff.attendance === "present" ? (
-                          <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-3 py-1 text-emerald-700">
+                          <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-3 py-1 text-emerald-700 font-semibold">
                             <Check size={16} />
                             Present
                           </span>
                         ) : (
-                          <span className="inline-flex items-center gap-1 rounded-full bg-rose-100 px-3 py-1 text-rose-700">
+                          <span className="inline-flex items-center gap-1 rounded-full bg-rose-100 px-3 py-1 text-rose-700 font-semibold">
                             <X size={16} />
                             Absent
                           </span>
@@ -360,12 +360,12 @@ const StaffManagement = () => {
                       </td>
                       <td className="py-4 px-4 text-center">
                         {staff.dressCode === "compliant" ? (
-                          <span className="inline-flex items-center gap-1 rounded-full bg-sky-100 px-3 py-1 text-sky-700">
+                          <span className="inline-flex items-center gap-1 rounded-full bg-blue-100 px-3 py-1 text-blue-700 font-semibold">
                             <Check size={16} />
                             Compliant
                           </span>
                         ) : (
-                          <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-3 py-1 text-amber-700">
+                          <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-3 py-1 text-amber-700 font-semibold">
                             <X size={16} />
                             Non-Compliant
                           </span>
@@ -380,7 +380,7 @@ const StaffManagement = () => {
             {activeTab === "files" && (
               <table className="w-full min-w-full table-auto">
                 <thead>
-                  <tr className="border-b border-slate-200 text-left text-sm text-slate-700">
+                  <tr className="border-b border-white/20 text-left text-sm font-semibold text-slate-700 bg-white/50">
                     <th className="py-4 px-4">Staff Member</th>
                     <th className="py-4 px-4">Role</th>
                     <th className="py-4 px-4">License Expiry</th>
@@ -395,7 +395,7 @@ const StaffManagement = () => {
                     );
 
                     return (
-                      <tr key={staff.id} className="border-b border-slate-100">
+                      <tr key={staff.id} className="border-b border-white/10 hover:bg-white/40 transition-colors">
                         <td className="py-4 px-4 text-slate-900">
                           {staff.name}
                         </td>
@@ -407,17 +407,17 @@ const StaffManagement = () => {
                         </td>
                         <td className="py-4 px-4 text-slate-900">
                           {expired ? (
-                            <span className="inline-flex items-center gap-2 rounded-full bg-rose-100 px-3 py-1 text-rose-700">
+                            <span className="inline-flex items-center gap-2 rounded-full bg-rose-100 px-3 py-1 text-rose-700 font-semibold">
                               <AlertTriangle size={16} />
                               Expired
                             </span>
                           ) : expiringSoon ? (
-                            <span className="inline-flex items-center gap-2 rounded-full bg-amber-100 px-3 py-1 text-amber-700">
+                            <span className="inline-flex items-center gap-2 rounded-full bg-amber-100 px-3 py-1 text-amber-700 font-semibold">
                               <AlertTriangle size={16} />
                               Expires Soon
                             </span>
                           ) : (
-                            <span className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-3 py-1 text-emerald-700">
+                            <span className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-3 py-1 text-emerald-700 font-semibold">
                               <Check size={16} />
                               Valid
                             </span>
@@ -433,7 +433,7 @@ const StaffManagement = () => {
             {activeTab === "salary" && (
               <table className="w-full min-w-full table-auto">
                 <thead>
-                  <tr className="border-b border-slate-200 text-left text-sm text-slate-700">
+                  <tr className="border-b border-white/20 text-left text-sm font-semibold text-slate-700 bg-white/50">
                     <th className="py-4 px-4">Staff Member</th>
                     <th className="py-4 px-4">Role</th>
                     <th className="py-4 px-4 text-center">Salary</th>
@@ -442,22 +442,22 @@ const StaffManagement = () => {
                 </thead>
                 <tbody>
                   {staffData.map((staff) => (
-                    <tr key={staff.id} className="border-b border-slate-100">
-                      <td className="py-4 px-4 text-slate-900">{staff.name}</td>
+                    <tr key={staff.id} className="border-b border-white/10 hover:bg-white/40 transition-colors">
+                      <td className="py-4 px-4 text-slate-900 font-medium">{staff.name}</td>
                       <td className="py-4 px-4 text-slate-600">{staff.role}</td>
-                      <td className="py-4 px-4 text-center text-slate-900">
-                        <span className="inline-flex items-center gap-1">
+                      <td className="py-4 px-4 text-center text-slate-900 font-semibold">
+                        <span className="inline-flex items-center gap-1 justify-center">
                           <DollarSign size={16} />${getSalaryValue(staff)}
                         </span>
                       </td>
                       <td className="py-4 px-4 text-slate-900">
                         {staff.salaryPaid ? (
-                          <span className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-3 py-1 text-emerald-700">
+                          <span className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-3 py-1 text-emerald-700 font-semibold">
                             <Check size={16} />
                             Paid
                           </span>
                         ) : (
-                          <span className="inline-flex items-center gap-2 rounded-full bg-rose-100 px-3 py-1 text-rose-700">
+                          <span className="inline-flex items-center gap-2 rounded-full bg-rose-100 px-3 py-1 text-rose-700 font-semibold">
                             <AlertTriangle size={16} />
                             Pending
                           </span>
@@ -472,7 +472,7 @@ const StaffManagement = () => {
             {activeTab === "contracts" && (
               <table className="w-full min-w-full table-auto">
                 <thead>
-                  <tr className="border-b border-slate-200 text-left text-sm text-slate-700">
+                  <tr className="border-b border-white/20 text-left text-sm font-semibold text-slate-700 bg-white/50">
                     <th className="py-4 px-4">Staff Member</th>
                     <th className="py-4 px-4">Role</th>
                     <th className="py-4 px-4">Start Date</th>
@@ -485,8 +485,8 @@ const StaffManagement = () => {
                     const contractStatus = getContractStatus(staff);
 
                     return (
-                      <tr key={staff.id} className="border-b border-slate-100">
-                        <td className="py-4 px-4 text-slate-900">
+                      <tr key={staff.id} className="border-b border-white/10 hover:bg-white/40 transition-colors">
+                        <td className="py-4 px-4 text-slate-900 font-medium">
                           {staff.name}
                         </td>
                         <td className="py-4 px-4 text-slate-600">
@@ -500,7 +500,7 @@ const StaffManagement = () => {
                         </td>
                         <td className="py-4 px-4 text-slate-900">
                           <span
-                            className={`inline-flex items-center gap-2 rounded-full px-3 py-1 ${contractStatus.classes}`}
+                            className={`inline-flex items-center gap-2 rounded-full px-3 py-1 font-semibold ${contractStatus.classes}`}
                           >
                             {contractStatus.icon}
                             {contractStatus.label}
